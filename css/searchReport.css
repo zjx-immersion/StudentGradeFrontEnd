@@ -1,0 +1,12 @@
+body {
+  padding: 70px ;
+}
+
+.panel-custom {
+padding: 30px;
+}
+
+.class-score{
+  text-align: right;
+  line-height: 2;
+}
