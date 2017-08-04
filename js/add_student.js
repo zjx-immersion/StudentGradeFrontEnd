@@ -1,12 +1,17 @@
 $(function() {
   function submit() {
-    let form = $("#studentform");
-    let formData = form.serializeArray();
+    const studentDB =JSON.parse(localStorage.getItem("students")) || [];
+    const form = $("#studentform");
+    const formData = form.serializeArray();
+    const student = {};
+    formData.forEach(obj => student[obj.name] = obj.value);
+    student.id = Math.random().toString(36).substr(2, 9);
+    studentDB.push(student);
     console.log("Original Data: " );
     console.log(formData);
-    localStorage.setItem("form", JSON.stringify(formData));
+    localStorage.setItem("students", JSON.stringify(studentDB));
     console.log("Storage Data: " );
-    console.log(JSON.parse(localStorage.getItem("form")));
+    console.log(JSON.parse(localStorage.getItem("students")));
     $("#successLabel").fadeToggle(3000, function(){
       $(this).hide();
       form.trigger("reset");
