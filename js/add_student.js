@@ -1,23 +1,21 @@
 $(function() {
+
+  const dbKey = "students";
   function submit() {
-    const studentDB =JSON.parse(localStorage.getItem("students")) || [];
+    const studentDB =JSON.parse(localStorage.getItem(dbKey)) || [];
     const form = $("#studentform");
     const formData = form.serializeArray();
     const student = {};
     formData.forEach(obj => student[obj.name] = obj.value);
     student.id = Math.random().toString(36).substr(2, 9);
     studentDB.push(student);
-    console.log("Original Data: " );
-    console.log(formData);
     localStorage.setItem("students", JSON.stringify(studentDB));
-    console.log("Storage Data: " );
-    console.log(JSON.parse(localStorage.getItem("students")));
+
     $("#successLabel").fadeToggle(3000, function(){
       $(this).hide();
       form.trigger("reset");
     });
 
-    // $("#success-label").fadeOut();
     event.preventDefault();
   };
 

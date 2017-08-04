@@ -19,6 +19,39 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
+    <script id="gradeReportTemplate" type="text/html">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Math</th>
+            <th>Chinese</th>
+            <th>English</th>
+            <th>Program</th>
+            <th>Middle Score</th>
+            <th>Total Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{each(i, gradeItem) gradeItems}}
+          <tr>
+            <th>${gradeItem.studentName}</th>
+            <th>${gradeItem.math}</th>
+            <th>${gradeItem.chinese}</th>
+            <th>${gradeItem.english}</th>
+            <th>${gradeItem.program}</th>
+            <th>${gradeItem.middleScore}</th>
+            <th>${gradeItem.totalScore}</th>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <div class="class-score">
+        <h5>Class Middle Score: <span class="label label-default">${classMiddleScore}</span></h5>
+        <h5>Class Total Score: <span class="label label-default">${classTotalScore}</span></h5>
+      </div>
+    </script>
+
   </head>
 
   <body>
@@ -50,61 +83,19 @@
       <!-- /.row -->
       <div class="row panel panel-default panel-custom">
         <h2>Grade Report</h2>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Math</th>
-              <th>Chinese</th>
-              <th>English</th>
-              <th>Program</th>
-              <th>Middle Score</th>
-              <th>Total Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Jason</td>
-              <td>90</td>
-              <td>80</td>
-              <td>100</td>
-              <td>60</td>
-              <td>80</td>
-              <td>350</td>
-            </tr>
-            <tr>
-              <td>Jason</td>
-              <td>90</td>
-              <td>80</td>
-              <td>100</td>
-              <td>60</td>
-              <td>80</td>
-              <td>350</td>
-            </tr>
-            <tr>
-              <td>Jason</td>
-              <td>90</td>
-              <td>80</td>
-              <td>100</td>
-              <td>60</td>
-              <td>80</td>
-              <td>350</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="class-score">
-          <h5>Class Middle Score: <span class="label label-default">330</span></h5>
-          <h5>Class Total Score: <span class="label label-default">1020</span></h5>
+        <div id="studentGradeReport">
+
         </div>
       </div>
-      <!-- /container -->
+    </div>
+    <!-- /container -->
 
-
-
-      <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
-      <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-      <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="../js/search_report.js"></script>
   </body>
 
 </html>
